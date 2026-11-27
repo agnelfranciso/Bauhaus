@@ -37,15 +37,34 @@ Every design is stored as a schema-validated `.bauhaus.json` scene graph and can
 
 ### One-Prompt AI Setup (Copy & Paste)
 
-Paste this prompt into **Antigravity**, **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, or **GitHub Copilot**—no manual coding required:
+Paste this prompt into **Antigravity**, **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, or **GitHub Copilot**—the agent will automatically detect its own environment, fetch the **latest release**, install dependencies, and start **Bauhaus Studio**:
 
 ```text
 Install and configure the Bauhaus (bhs) graphic design skill from https://github.com/agnelfranciso/Bauhaus:
-1. Download the v1.0.0 release archive (https://github.com/agnelfranciso/Bauhaus/releases/download/v1.0.0/bauhaus-v1.0.0.zip) or clone https://github.com/agnelfranciso/Bauhaus.git.
-2. Place the `bauhaus/` folder inside my agent's skills directory (e.g. `.agents/skills/bauhaus` or `.claude/skills/bauhaus`).
-3. Run `npm install` inside the `bauhaus/` directory.
-4. Register `./scripts/bauhaus-mcp.mjs` as an MCP server if supported, and validate with `skills-ref validate ./bauhaus` (if installed).
-5. Start Bauhaus Studio (`npm start` inside `bauhaus/`) and give me the live portal link http://127.0.0.1:4820.
+
+1. Fetch the latest release:
+   - Run `gh release download --repo agnelfranciso/Bauhaus --pattern "*.zip"` (or fetch the latest release asset from https://github.com/agnelfranciso/Bauhaus/releases/latest, or `git clone https://github.com/agnelfranciso/Bauhaus.git`) and extract the `bauhaus/` folder.
+
+2. Install `bauhaus/` into the correct skills directory for your agent environment:
+   - Antigravity: `.agents/skills/bauhaus` (project) or `~/.gemini/config/skills/bauhaus` (global)
+   - Claude Code: `.claude/skills/bauhaus` (project) or `~/.claude/skills/bauhaus` (global)
+   - Cursor: `.agents/skills/bauhaus` or `.cursor/skills/bauhaus`
+   - OpenAI Codex / Codex CLI: `.agents/skills/bauhaus`
+   - Gemini CLI: `.agents/skills/bauhaus` or `.gemini/skills/bauhaus`
+   - GitHub Copilot: `.github/skills/bauhaus` or `.agents/skills/bauhaus`
+
+3. Install dependencies & verify:
+   - Inside `bauhaus/`, run `npm install` and `npm test`.
+   - If `skills-ref` is installed, run `skills-ref validate <path-to-bauhaus>`.
+
+4. Register the MCP server (`<abs-path>/bauhaus/scripts/bauhaus-mcp.mjs`) for your agent if supported:
+   - Antigravity / Gemini CLI: add to `mcp_config.json` or `~/.gemini/settings.json` under `mcpServers`
+   - Claude Code: `claude mcp add bauhaus -- node <abs-path>/bauhaus/scripts/bauhaus-mcp.mjs`
+   - Cursor: add to `.cursor/mcp.json`
+   - GitHub Copilot (VS Code): add to `.vscode/mcp.json`
+   - Codex CLI: add to `~/.codex/config.toml`
+
+5. Start Bauhaus Studio (`npm start` inside `bauhaus/`) and share the live portal URL http://127.0.0.1:4820 with me.
 ```
 
 ### Manual Installation

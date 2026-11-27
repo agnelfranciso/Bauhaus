@@ -11,9 +11,14 @@
 
 ```text
 Install and configure the Bauhaus (bhs) graphic design skill from https://github.com/agnelfranciso/Bauhaus:
-1. Download https://github.com/agnelfranciso/Bauhaus/releases/download/v1.0.0/bauhaus-v1.0.0.zip (or clone https://github.com/agnelfranciso/Bauhaus.git) and place `bauhaus/` into my agent's skills directory (e.g. `.agents/skills/bauhaus` or `.claude/skills/bauhaus`).
+1. Fetch the latest release from https://github.com/agnelfranciso/Bauhaus/releases/latest (or clone https://github.com/agnelfranciso/Bauhaus.git) and place `bauhaus/` in your agent's skills directory:
+   - Antigravity: `.agents/skills/bauhaus` or `~/.gemini/config/skills/bauhaus`
+   - Claude Code: `.claude/skills/bauhaus` or `~/.claude/skills/bauhaus`
+   - Cursor: `.agents/skills/bauhaus` or `.cursor/skills/bauhaus`
+   - Codex / Gemini CLI: `.agents/skills/bauhaus`
+   - GitHub Copilot: `.github/skills/bauhaus`
 2. Run `npm install` inside `bauhaus/` and validate with `skills-ref validate .`.
-3. Register `./scripts/bauhaus-mcp.mjs` as an MCP server and start Bauhaus Studio (`npm start`) on http://127.0.0.1:4820.
+3. Register `<abs-path>/bauhaus/scripts/bauhaus-mcp.mjs` as an MCP server for your agent, start Bauhaus Studio (`npm start`), and share http://127.0.0.1:4820.
 ```
 
 ## Installation & Validation
