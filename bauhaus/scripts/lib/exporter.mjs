@@ -4,6 +4,7 @@ import { chromium } from 'playwright-core';
 import sharp from 'sharp';
 import { renderToHtml, renderToSvg } from './svg-renderer.mjs';
 import { validateDesign } from './scene-graph.mjs';
+import { collectDesignFonts } from './fonts.mjs';
 
 const BROWSER_CANDIDATES = [
   process.env.BAUHAUS_BROWSER_PATH,
@@ -24,13 +25,34 @@ export function findBrowserExecutable() {
   throw new Error('No Chromium/Chrome/Edge executable found. Set BAUHAUS_BROWSER_PATH.');
 }
 
+async function launchBrowser(executablePath) {
+  if (process.env.BAUHAUS_NO_SANDBOX === '1') {
+    return chromium.launch({
+      executablePath,
+      headless: true,
+      args: ['--no-sandbox', '--disable-gpu-sandbox'],
+    });
+  }
+  try {
+    return await chromium.launch({
+      executablePath,
+      headless: true,
+    });
+  } catch (err) {
+    if (/sandbox|SUID|namespace|zygote/i.test(err?.message || '')) {
+      return chromium.launch({
+        executablePath,
+        headless: true,
+        args: ['--no-sandbox', '--disable-gpu-sandbox'],
+      });
+    }
+    throw err;
+  }
+}
+
 async function withPage(design, opts, fn) {
   const executablePath = findBrowserExecutable();
-  const browser = await chromium.launch({
-    executablePath,
-    headless: true,
-    args: ['--no-sandbox', '--disable-gpu-sandbox'],
-  });
+  const browser = await launchBrowser(executablePath);
   try {
     const scale = opts.scale || 1;
     const pad = opts.includeBleedMarks && design.canvas.bleed ? design.canvas.bleed : 0;
@@ -49,7 +71,26 @@ async function withPage(design, opts, fn) {
       new Promise((r) => setTimeout(r, 3500)),
     ]);
     await page.waitForTimeout(150);
-    return await fn(page, { width, height, scale });
+
+    const { fonts } = collectDesignFonts(design);
+    const requestedFamilies = fonts.map((f) => f.family).filter(Boolean);
+    const missingFonts = requestedFamilies.length
+      ? await page.evaluate((families) => {
+          if (!document.fonts || typeof document.fonts.check !== 'function') return [];
+          return families.filter((fam) => {
+            try {
+              return !document.fonts.check(`16px "${fam.replace(/"/g, '\\"')}"`);
+            } catch {
+              return false;
+            }
+          });
+        }, requestedFamilies)
+      : [];
+    const fontWarnings = missingFonts.map(
+      (f) => `Font "${f}" did not load before render; fallback stack was used.`
+    );
+
+    return await fn(page, { width, height, scale, fontWarnings });
   } finally {
     await browser.close();
   }
@@ -93,7 +134,9 @@ export async function exportDesign(designInput, format, outPath, options = {}) {
       ? { ...design, canvas: { ...design.canvas, bleed } }
       : design;
 
+    let fontWarnings = [];
     await withPage(printDesign, { scale: isPrint ? 2 : 1, includeBleedMarks: isPrint }, async (page, dims) => {
+      fontWarnings = dims.fontWarnings || [];
       await page.pdf({
         path: resolvedOut,
         width: `${dims.width}px`,
@@ -102,14 +145,19 @@ export async function exportDesign(designInput, format, outPath, options = {}) {
         margin: { top: 0, right: 0, bottom: 0, left: 0 },
       });
     });
-    return verifyExport(resolvedOut, fmt, printDesign);
+    const info = await verifyExport(resolvedOut, fmt, printDesign);
+    if (fontWarnings.length > 0) info.fontWarnings = fontWarnings;
+    return info;
   }
 
   if (fmt === 'png' || fmt === 'jpeg' || fmt === 'jpg' || fmt === 'webp') {
     const scale = options.scale || 1;
     const omitBg = fmt === 'png' && design.canvas.background?.type === 'transparent';
-    const pngBuffer = await withPage(design, { scale }, async (page) => {
-      return await page.screenshot({ type: 'png', omitBackground: omitBg });
+    const { pngBuffer, fontWarnings } = await withPage(design, { scale }, async (page, dims) => {
+      return {
+        pngBuffer: await page.screenshot({ type: 'png', omitBackground: omitBg }),
+        fontWarnings: dims.fontWarnings || [],
+      };
     });
 
     if (fmt === 'png') {
@@ -119,7 +167,9 @@ export async function exportDesign(designInput, format, outPath, options = {}) {
     } else if (fmt === 'webp') {
       await sharp(pngBuffer).webp({ quality: options.quality || 90 }).toFile(resolvedOut);
     }
-    return verifyExport(resolvedOut, fmt, design, scale);
+    const info = await verifyExport(resolvedOut, fmt, design, scale);
+    if (fontWarnings.length > 0) info.fontWarnings = fontWarnings;
+    return info;
   }
 
   throw new Error(`Unsupported export format: ${format}`);

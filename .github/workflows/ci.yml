@@ -1,0 +1,39 @@
+name: Bauhaus CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bauhaus
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: bauhaus/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Security audit
+        run: npm audit --audit-level=high
+
+      - name: Install Chromium for export tests
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser fonts-noto-core fonts-noto-extra || true
+          echo "BAUHAUS_BROWSER_PATH=$(command -v chromium-browser || command -v chromium || command -v google-chrome || true)" >> $GITHUB_ENV
+
+      - name: Run test suite
+        env:
+          BAUHAUS_NO_SANDBOX: '1'
+        run: npm test

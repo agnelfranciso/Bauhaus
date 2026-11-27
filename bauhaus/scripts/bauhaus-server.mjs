@@ -10,18 +10,20 @@ import { DesignStore, createNewDesign } from './lib/scene-graph.mjs';
 import { exportDesign } from './lib/exporter.mjs';
 import { renderToSvg } from './lib/svg-renderer.mjs';
 import { buildFontHeadTags } from './lib/fonts.mjs';
-import { sanitizeSvg, resolveSafePath } from './lib/security.mjs';
+import { sanitizeSvg, resolveSafePath, resolveSafeWritePath } from './lib/security.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BAUHAUS_ROOT = path.resolve(__dirname, '..');
 const STUDIO_DIR = path.resolve(BAUHAUS_ROOT, 'studio');
 const UPLOADS_DIR = path.resolve(BAUHAUS_ROOT, 'assets/uploads');
 const PROJECTS_DIR = path.resolve(BAUHAUS_ROOT, 'projects');
+const EXPORTS_DIR = path.resolve(BAUHAUS_ROOT, 'exports');
 const TEMPLATES_DIR = path.resolve(BAUHAUS_ROOT, 'assets/templates');
 const EXAMPLES_DIR = path.resolve(BAUHAUS_ROOT, 'assets/examples');
 
 fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 fs.mkdirSync(PROJECTS_DIR, { recursive: true });
+fs.mkdirSync(EXPORTS_DIR, { recursive: true });
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -225,23 +227,34 @@ export function startBauhausServer({ port = 4820, designPath = null } = {}) {
     return raw ? JSON.parse(raw) : {};
   }
 
+  function isAllowedHost(hostHeader) {
+    if (!hostHeader || typeof hostHeader !== 'string') return false;
+    const normalized = hostHeader.trim().toLowerCase();
+    return normalized === `127.0.0.1:${port}` || normalized === `localhost:${port}`;
+  }
+
+  function isAllowedOrigin(originHeader) {
+    if (originHeader === undefined) return true;
+    if (typeof originHeader !== 'string') return false;
+    const normalized = originHeader.trim().toLowerCase();
+    return normalized === `http://127.0.0.1:${port}` || normalized === `http://localhost:${port}`;
+  }
+
   function sendJson(res, status, data) {
     res.writeHead(status, {
       'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'X-Content-Type-Options': 'nosniff',
     });
     res.end(JSON.stringify(data));
   }
 
   const server = http.createServer(async (req, res) => {
+    if (!isAllowedHost(req.headers.host) || !isAllowedOrigin(req.headers.origin)) {
+      return sendJson(res, 403, { error: 'Forbidden: invalid Host or Origin' });
+    }
+
     if (req.method === 'OPTIONS') {
-      res.writeHead(204, {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,POST,PUT,PATCH,DELETE,OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      });
+      res.writeHead(204);
       return res.end();
     }
 
@@ -313,7 +326,7 @@ export function startBauhausServer({ port = 4820, designPath = null } = {}) {
       if (p === '/api/projects' && req.method === 'DELETE') {
         const fp = url.searchParams.get('filePath');
         if (!fp) throw new Error('filePath is required');
-        const safe = resolveSafePath(PROJECTS_DIR, path.basename(fp));
+        const safe = resolveSafeWritePath([PROJECTS_DIR], fp);
         if (fs.existsSync(safe)) fs.unlinkSync(safe);
         return sendJson(res, 200, { deleted: safe });
       }
@@ -389,7 +402,10 @@ export function startBauhausServer({ port = 4820, designPath = null } = {}) {
       if (p === '/api/design/create' && req.method === 'POST') {
         const body = await readJsonBody(req);
         const doc = createNewDesign(body);
-        store = new DesignStore(doc, body.filePath ? path.resolve(body.filePath) : store.filePath);
+        const targetPath = body.filePath
+          ? resolveSafeWritePath([PROJECTS_DIR], body.filePath)
+          : store.filePath;
+        store = new DesignStore(doc, targetPath);
         persistIfBound();
         broadcastState();
         return sendJson(res, 201, { doc: store.doc, filePath: store.filePath });
@@ -447,7 +463,10 @@ export function startBauhausServer({ port = 4820, designPath = null } = {}) {
 
       if (p === '/api/design/save' && req.method === 'POST') {
         const body = await readJsonBody(req);
-        const saved = store.save(body.filePath || store.filePath);
+        const targetPath = body.filePath
+          ? resolveSafeWritePath([PROJECTS_DIR], body.filePath)
+          : store.filePath;
+        const saved = store.save(targetPath);
         return sendJson(res, 200, { saved });
       }
 
@@ -546,7 +565,11 @@ export function startBauhausServer({ port = 4820, designPath = null } = {}) {
 
       if (p === '/api/export' && req.method === 'POST') {
         const body = await readJsonBody(req);
-        const info = await exportDesign(store.doc, body.format || 'png', body.outPath, {
+        const fmt = body.format || 'png';
+        const ext = fmt === 'print-pdf' ? 'print.pdf' : fmt;
+        const defaultOut = `${store.doc?.id || 'design'}.${ext}`;
+        const safeOutPath = resolveSafeWritePath([EXPORTS_DIR, PROJECTS_DIR], body.outPath || defaultOut);
+        const info = await exportDesign(store.doc, fmt, safeOutPath, {
           scale: body.scale || 1,
           quality: body.quality,
         });
@@ -599,6 +622,11 @@ export function startBauhausServer({ port = 4820, designPath = null } = {}) {
   });
 
   server.on('upgrade', (request, socket, head) => {
+    if (!isAllowedHost(request.headers.host) || !isAllowedOrigin(request.headers.origin)) {
+      socket.write('HTTP/1.1 403 Forbidden\r\nConnection: close\r\n\r\n');
+      socket.destroy();
+      return;
+    }
     if (request.url === '/ws') {
       wss.handleUpgrade(request, socket, head, (ws) => {
         clients.add(ws);

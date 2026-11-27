@@ -2,14 +2,16 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { WebSocket } from 'ws';
 import { DesignStore, createNewDesign, validateDesign } from '../scripts/lib/scene-graph.mjs';
 import { exportDesign } from '../scripts/lib/exporter.mjs';
-import { sanitizeSvg, resolveSafePath } from '../scripts/lib/security.mjs';
-import { detectScripts } from '../scripts/lib/fonts.mjs';
+import { sanitizeSvg, resolveSafePath, resolveSafeWritePath } from '../scripts/lib/security.mjs';
+import { detectScripts, resolveFontFamily } from '../scripts/lib/fonts.mjs';
 import { startBauhausServer } from '../scripts/bauhaus-server.mjs';
 
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'bauhaus-test-'));
 let passed = 0;
+let failed = 0;
 
 async function test(name, fn) {
   try {
@@ -18,6 +20,7 @@ async function test(name, fn) {
     passed++;
   } catch (err) {
     console.error(`FAIL: ${name}\n`, err);
+    failed++;
     process.exitCode = 1;
   }
 }
@@ -56,19 +59,38 @@ await test('Scene graph CRUD, grouping, layer reorder, undo/redo, save/reload', 
   assert.equal(store.doc.elements.length, 1);
 });
 
-await test('Security: SVG sanitization and path traversal protection', () => {
-  const dirty = '<svg><script>alert(1)</script><rect onload="evil()" width="10" height="10"/></svg>';
+await test('Security: SVG sanitization (bypass vectors) and path traversal protection', () => {
+  const dirty = [
+    '<svg xmlns="http://www.w3.org/2000/svg">',
+    '<script>alert(1)</script>',
+    '<rect onload="evil()" width="10" height="10"/>',
+    '<a href="java&#115;cript:alert(1)"><text>x</text></a>',
+    '<set attributeName="href" to="javascript:alert(1)"/>',
+    '<image href="http://attacker.example/leak.png" width="10" height="10"/>',
+    '<foreignObject width="100" height="100"><div><img src="x" onerror="alert(1)"/></div></foreignObject>',
+    '<path d="M0 0 L10 10" fill="#111"/>',
+    '</svg>',
+  ].join('');
   const clean = sanitizeSvg(dirty);
   assert.equal(clean.includes('<script'), false);
   assert.equal(clean.includes('onload'), false);
+  assert.equal(/javascript:/i.test(clean), false);
+  assert.equal(/<set\b/i.test(clean), false);
+  assert.equal(/attacker\.example/i.test(clean), false);
+  assert.equal(/foreignObject/i.test(clean), false);
+  assert.equal(clean.includes('M0 0 L10 10'), true);
   assert.throws(() => resolveSafePath(tmpDir, '../../outside.txt'));
+  assert.throws(() => resolveSafeWritePath([tmpDir], '../../outside.txt'));
 });
 
-await test('Multilingual script detection (Malayalam & Hindi)', () => {
+await test('Multilingual script detection (Malayalam & Hindi) & font fallbacks', () => {
   const scripts = detectScripts('കലോത്സവം स्वागत');
   const names = scripts.map((s) => s.name);
   assert.ok(names.includes('malayalam'));
   assert.ok(names.includes('devanagari'));
+  assert.equal(resolveFontFamily('Inter', 'Hello'), 'Inter, system-ui, sans-serif');
+  assert.equal(resolveFontFamily('JetBrains Mono', 'Code'), 'JetBrains Mono, monospace');
+  assert.ok(resolveFontFamily('Playfair Display', 'Title').endsWith('serif'));
 });
 
 await test('Live Studio HTTP API CRUD & Undo', async () => {
@@ -124,6 +146,49 @@ await test('Live Studio HTTP API CRUD & Undo', async () => {
       body: JSON.stringify({ filePath: 'C:\\Windows\\System32\\drivers\\etc\\hosts' }),
     });
     assert.equal(traversalRes.status, 400);
+
+    // Origin, CORS, WebSocket origin, and arbitrary write path protections
+    const evilOriginRes = await fetch(`${url}/api/health`, {
+      headers: { Origin: 'https://evil.example' },
+    });
+    assert.equal(evilOriginRes.status, 403);
+    assert.equal(evilOriginRes.headers.get('access-control-allow-origin'), null);
+
+    const evilSaveRes = await fetch(`${url}/api/design/save`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filePath: '../../evil.json' }),
+    });
+    assert.equal(evilSaveRes.status, 400);
+
+    const evilCreateRes = await fetch(`${url}/api/design/create`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Evil', filePath: path.join(os.tmpdir(), 'evil-create.json') }),
+    });
+    assert.equal(evilCreateRes.status, 400);
+
+    const evilExportRes = await fetch(`${url}/api/export`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ format: 'svg', outPath: path.join(os.tmpdir(), 'evil-export.svg') }),
+    });
+    assert.equal(evilExportRes.status, 400);
+
+    await new Promise((resolve, reject) => {
+      const ws = new WebSocket(`ws://127.0.0.1:${port}/ws`, {
+        headers: { Origin: 'https://evil.example' },
+      });
+      ws.on('open', () => {
+        ws.close();
+        reject(new Error('Foreign WebSocket origin should have been rejected'));
+      });
+      ws.on('unexpected-response', (_req, res) => {
+        assert.equal(res.statusCode, 403);
+        resolve();
+      });
+      ws.on('error', () => resolve());
+    });
   } finally {
     server.close();
   }
@@ -159,7 +224,11 @@ await test('Rendering & Multi-format Export (PNG, JPEG, WebP, SVG, PDF, Print-PD
   }
 });
 
-console.log(`\nAll ${passed} test suites completed.`);
+if (failed > 0) {
+  console.error(`\nFAILED: ${failed} of ${passed + failed} test suite(s) failed.`);
+} else {
+  console.log(`\nAll ${passed} test suites passed.`);
+}
 try {
   fs.rmSync(tmpDir, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 });
 } catch {

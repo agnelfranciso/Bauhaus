@@ -102,12 +102,25 @@ export function buildFontHeadTags(design) {
 }
 
 /**
- * Returns a font-family CSS string augmented with script-safe fallbacks.
+ * Returns a font-family CSS string augmented with script-safe and generic fallbacks
+ * so unreachable or timed-out web fonts degrade cleanly instead of falling back to Times.
  */
 export function resolveFontFamily(requestedFamily, text) {
-  const base = requestedFamily || 'Inter, system-ui, sans-serif';
+  const base = (requestedFamily || 'Inter').trim();
+  const hasGeneric = /(?:^|,)\s*(?:sans-serif|serif|monospace|cursive|fantasy|system-ui)\s*$/i.test(base);
+  const genericFallback = /\b(mono|code|courier|consolas|menlo|inconsolata)\b/i.test(base)
+    ? 'monospace'
+    : /\b(serif|playfair|garamond|lora|merriweather|cormorant|baskerville|crimson|bodoni|caslon|didot)\b/i.test(base)
+      ? "Georgia, 'Times New Roman', serif"
+      : 'system-ui, sans-serif';
+
   const scripts = detectScripts(text);
-  if (scripts.length === 0) return base;
-  const fallbacks = scripts.map((s) => s.systemFallback).join(', ');
-  return `${base}, ${fallbacks}`;
+  const parts = [base];
+  if (scripts.length > 0) {
+    parts.push(...scripts.map((s) => s.systemFallback));
+  }
+  if (!hasGeneric) {
+    parts.push(genericFallback);
+  }
+  return parts.join(', ');
 }

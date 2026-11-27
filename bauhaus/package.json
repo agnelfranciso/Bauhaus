@@ -23,7 +23,8 @@
     "ajv": "^8.18.0",
     "ajv-formats": "^3.0.1",
     "playwright-core": "^1.59.1",
-    "sharp": "^0.34.5",
+    "sanitize-html": "^2.18.2",
+    "sharp": "^0.35.5",
     "ws": "^8.20.0"
   }
 }

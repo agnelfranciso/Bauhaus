@@ -5,6 +5,7 @@ bauhaus/assets/uploads/*
 !bauhaus/assets/uploads/.gitkeep
 .agents/
 test/
+bauhaus-promo/
 *.log
 .DS_Store
 Thumbs.db
