@@ -37,15 +37,15 @@ Every design is stored as a schema-validated `.bauhaus.json` scene graph and can
 
 ### One-Prompt AI Setup (Copy & Paste)
 
-Paste this prompt into **Antigravity**, **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, or **GitHub Copilot** to install and set up **Bauhaus** automatically:
+Paste this prompt into **Antigravity**, **Claude Code**, **Cursor**, **Codex**, **Gemini CLI**, or **GitHub Copilot**—no manual coding required:
 
 ```text
-Install and configure the Bauhaus graphic design skill from this repository:
-1. Install Node dependencies inside ./bauhaus (`npm install`).
-2. Run `npm test` inside ./bauhaus to verify rendering, schema validation, and exports.
-3. Validate the skill with `skills-ref validate ./bauhaus` (install `skills-ref` via pip if missing).
-4. Link or copy ./bauhaus into my agent's skills directory (e.g. `.agents/skills/bauhaus` or `.claude/skills/bauhaus`).
-5. Register the MCP server at `./bauhaus/scripts/bauhaus-mcp.mjs` if supported, and start Bauhaus Studio (`npm start` inside ./bauhaus) on http://127.0.0.1:4820.
+Install and configure the Bauhaus (bhs) graphic design skill from https://github.com/agnelfranciso/Bauhaus:
+1. Download the v1.0.0 release archive (https://github.com/agnelfranciso/Bauhaus/releases/download/v1.0.0/bauhaus-v1.0.0.zip) or clone https://github.com/agnelfranciso/Bauhaus.git.
+2. Place the `bauhaus/` folder inside my agent's skills directory (e.g. `.agents/skills/bauhaus` or `.claude/skills/bauhaus`).
+3. Run `npm install` inside the `bauhaus/` directory.
+4. Register `./scripts/bauhaus-mcp.mjs` as an MCP server if supported, and validate with `skills-ref validate ./bauhaus` (if installed).
+5. Start Bauhaus Studio (`npm start` inside `bauhaus/`) and give me the live portal link http://127.0.0.1:4820.
 ```
 
 ### Manual Installation

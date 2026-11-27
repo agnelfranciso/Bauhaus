@@ -10,11 +10,10 @@
 ## One-Prompt AI Setup (Copy & Paste)
 
 ```text
-Install and configure the Bauhaus graphic design skill from ./bauhaus:
-1. Run `npm install` and `npm test` in ./bauhaus.
-2. Validate with `skills-ref validate .`
-3. Link ./bauhaus into my agent's skills directory (e.g. `.agents/skills/bauhaus` or `.claude/skills/bauhaus`) and register `./scripts/bauhaus-mcp.mjs` as an MCP server.
-4. Start Bauhaus Studio (`npm start`) on http://127.0.0.1:4820.
+Install and configure the Bauhaus (bhs) graphic design skill from https://github.com/agnelfranciso/Bauhaus:
+1. Download https://github.com/agnelfranciso/Bauhaus/releases/download/v1.0.0/bauhaus-v1.0.0.zip (or clone https://github.com/agnelfranciso/Bauhaus.git) and place `bauhaus/` into my agent's skills directory (e.g. `.agents/skills/bauhaus` or `.claude/skills/bauhaus`).
+2. Run `npm install` inside `bauhaus/` and validate with `skills-ref validate .`.
+3. Register `./scripts/bauhaus-mcp.mjs` as an MCP server and start Bauhaus Studio (`npm start`) on http://127.0.0.1:4820.
 ```
 
 ## Installation & Validation
