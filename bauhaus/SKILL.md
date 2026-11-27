@@ -1,6 +1,6 @@
 ---
 name: bauhaus
-description: Professional graphic design intelligence (alias: bhs) for creating, editing, critiquing and exporting visual designs using an editable design workspace.
+description: Professional graphic design intelligence (also invoked as bhs) for creating, editing, critiquing and exporting visual designs using an editable design workspace.
 ---
 
 # Bauhaus (`bhs`) — Autonomous Graphic Design Intelligence
