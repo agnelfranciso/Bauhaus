@@ -2,10 +2,10 @@
   <img src="./bauhaus/assets/icons/bauhaus-logo.svg" alt="Bauhaus Logo" width="72" height="72" />
 </p>
 
-<h1 align="center">Bauhaus</h1>
+<h1 align="center">Bauhaus (<code>bhs</code>)</h1>
 
 <p align="center">
-  Autonomous professional graphic design intelligence — an Agent Skills-compliant skill paired with a local-first editable design studio.
+  Autonomous professional graphic design intelligence — an Agent Skills-compliant skill (invocable via <strong>Bauhaus</strong> or shorthand <code>bhs</code>) paired with a local-first editable design studio.
 </p>
 
 ---

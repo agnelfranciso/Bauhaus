@@ -9,6 +9,7 @@
   },
   "bin": {
     "bauhaus": "./scripts/bauhaus-cli.mjs",
+    "bhs": "./scripts/bauhaus-cli.mjs",
     "bauhaus-studio": "./scripts/bauhaus-server.mjs",
     "bauhaus-mcp": "./scripts/bauhaus-mcp.mjs"
   },
