@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#111114"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" stroke="rgba(255,255,255,0.1)"/>
+  <!-- Ochre Triangle (top) -->
+  <polygon points="32,12 48,30 16,30" fill="#F59E0B"/>
+  <!-- Cobalt Square (bottom-left) -->
+  <rect x="14" y="34" width="16" height="16" rx="2" fill="#2563EB"/>
+  <!-- Vermilion Circle (bottom-right) -->
+  <circle cx="42" cy="42" r="8.5" fill="#E03C31"/>
+</svg>

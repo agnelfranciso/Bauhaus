@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bauhaus.design/schemas/element.schema.json",
+  "title": "Bauhaus Element",
+  "description": "Schema for an individual editable element in a Bauhaus scene graph.",
+  "type": "object",
+  "required": ["id", "type", "x", "y", "width", "height"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "image",
+        "rect",
+        "ellipse",
+        "line",
+        "polygon",
+        "svg",
+        "icon",
+        "background",
+        "gradient",
+        "group",
+        "imported_asset"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "x": { "type": "number" },
+    "y": { "type": "number" },
+    "width": { "type": "number", "minimum": 0 },
+    "height": { "type": "number", "minimum": 0 },
+    "rotation": { "type": "number", "default": 0 },
+    "opacity": { "type": "number", "minimum": 0, "maximum": 1, "default": 1 },
+    "layerOrder": { "type": "integer", "default": 0 },
+    "visible": { "type": "boolean", "default": true },
+    "locked": { "type": "boolean", "default": false },
+    "parentId": {
+      "type": ["string", "null"],
+      "default": null
+    },
+    "children": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "lang": { "type": "string" },
+        "dir": { "type": "string", "enum": ["ltr", "rtl", "auto"] },
+        "src": { "type": "string" },
+        "alt": { "type": "string" },
+        "fit": { "type": "string", "enum": ["cover", "contain", "fill"] },
+        "assetId": { "type": "string" },
+        "svgMarkup": { "type": "string" },
+        "viewBox": { "type": "string" },
+        "points": {
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["x", "y"],
+                "properties": {
+                  "x": { "type": "number" },
+                  "y": { "type": "number" }
+                }
+              }
+            }
+          ]
+        },
+        "sides": { "type": "integer", "minimum": 3 },
+        "x2": { "type": "number" },
+        "y2": { "type": "number" }
+      }
+    },
+    "style": {
+      "type": "object",
+      "properties": {
+        "fill": {
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "required": ["type", "stops"],
+              "properties": {
+                "type": { "type": "string", "enum": ["linear", "radial"] },
+                "angle": { "type": "number" },
+                "stops": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "object",
+                    "required": ["offset", "color"],
+                    "properties": {
+                      "offset": { "type": "number", "minimum": 0, "maximum": 1 },
+                      "color": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "stroke": { "type": "string" },
+        "strokeWidth": { "type": "number", "minimum": 0 },
+        "strokeDasharray": { "type": "string" },
+        "borderRadius": {
+          "oneOf": [
+            { "type": "number", "minimum": 0 },
+            {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": { "type": "number", "minimum": 0 }
+            }
+          ]
+        },
+        "shadow": {
+          "type": "object",
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "blur": { "type": "number", "minimum": 0 },
+            "color": { "type": "string" }
+          }
+        },
+        "blendMode": { "type": "string" },
+        "filter": { "type": "string" },
+        "fontFamily": { "type": "string" },
+        "fontSize": { "type": "number", "minimum": 1 },
+        "fontWeight": {
+          "oneOf": [{ "type": "integer" }, { "type": "string" }]
+        },
+        "fontStyle": { "type": "string", "enum": ["normal", "italic"] },
+        "lineHeight": { "type": "number", "minimum": 0.5 },
+        "letterSpacing": { "type": "number" },
+        "textAlign": { "type": "string", "enum": ["left", "center", "right", "justify"] },
+        "verticalAlign": { "type": "string", "enum": ["top", "middle", "bottom"] },
+        "color": { "type": "string" },
+        "textTransform": { "type": "string", "enum": ["none", "uppercase", "lowercase", "capitalize"] },
+        "textDecoration": { "type": "string", "enum": ["none", "underline", "line-through"] }
+      }
+    }
+  }
+}

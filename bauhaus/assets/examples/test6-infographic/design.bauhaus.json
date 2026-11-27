@@ -1,0 +1,544 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "ai-security-infographic",
+  "title": "2026 Cloud & AI Risk Infographic",
+  "category": "infographic",
+  "canvas": {
+    "width": 1080,
+    "height": 1350,
+    "unit": "px",
+    "dpi": 150,
+    "bleed": 0,
+    "background": {
+      "type": "solid",
+      "color": "#FFFFFF"
+    }
+  },
+  "fonts": [
+    {
+      "family": "Outfit",
+      "source": "google",
+      "weights": [
+        600,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Inter",
+      "source": "google",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    }
+  ],
+  "metadata": {
+    "brief": "Executive data infographic summarizing top enterprise cloud & AI security benchmarks",
+    "creativeDirection": "Clean Swiss editorial data layout with crisp slate typography, coral highlight bars, and structured KPI grid",
+    "targetAudience": "CISOs, engineering leaders, analysts",
+    "languages": [
+      "en"
+    ],
+    "palette": [
+      "#FFFFFF",
+      "#0F172A",
+      "#2563EB",
+      "#F43F5E",
+      "#F1F5F9"
+    ]
+  },
+  "elements": [
+    {
+      "id": "top-bar",
+      "type": "rect",
+      "name": "Top Accent Strip",
+      "x": 0,
+      "y": 0,
+      "width": 1080,
+      "height": 14,
+      "style": {
+        "fill": "#2563EB"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "eyebrow",
+      "type": "text",
+      "name": "Report Eyebrow",
+      "x": 72,
+      "y": 64,
+      "width": 936,
+      "height": 32,
+      "content": {
+        "text": "2026 ENTERPRISE BENCHMARK REPORT"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "letterSpacing": 2.5,
+        "color": "#2563EB"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "name": "Infographic Title",
+      "x": 72,
+      "y": 112,
+      "width": 936,
+      "height": 150,
+      "content": {
+        "text": "State of Cloud &\nAI Security"
+      },
+      "style": {
+        "fontFamily": "Outfit",
+        "fontSize": 76,
+        "fontWeight": 800,
+        "lineHeight": 1.04,
+        "letterSpacing": -2,
+        "color": "#0F172A"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "kpi-1-bg",
+      "type": "rect",
+      "name": "KPI 1 Card",
+      "x": 72,
+      "y": 300,
+      "width": 452,
+      "height": 200,
+      "style": {
+        "fill": "#F1F5F9",
+        "borderRadius": 14
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "kpi-1-txt",
+      "type": "text",
+      "name": "KPI 1 Number",
+      "x": 104,
+      "y": 322,
+      "width": 388,
+      "height": 76,
+      "content": {
+        "text": "74%"
+      },
+      "style": {
+        "fontFamily": "Outfit",
+        "fontSize": 64,
+        "fontWeight": 800,
+        "lineHeight": 1.05,
+        "color": "#2563EB"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "kpi-1-sub",
+      "type": "text",
+      "name": "KPI 1 Description",
+      "x": 104,
+      "y": 406,
+      "width": 388,
+      "height": 70,
+      "content": {
+        "text": "Teams adopting automated\nred-teaming in CI/CD"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 21,
+        "fontWeight": 500,
+        "lineHeight": 1.35,
+        "color": "#334155"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "kpi-2-bg",
+      "type": "rect",
+      "name": "KPI 2 Card",
+      "x": 556,
+      "y": 300,
+      "width": 452,
+      "height": 200,
+      "style": {
+        "fill": "#FFF1F2",
+        "borderRadius": 14
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "kpi-2-txt",
+      "type": "text",
+      "name": "KPI 2 Number",
+      "x": 588,
+      "y": 322,
+      "width": 388,
+      "height": 76,
+      "content": {
+        "text": "3.2×"
+      },
+      "style": {
+        "fontFamily": "Outfit",
+        "fontSize": 64,
+        "fontWeight": 800,
+        "lineHeight": 1.05,
+        "color": "#F43F5E"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "kpi-2-sub",
+      "type": "text",
+      "name": "KPI 2 Description",
+      "x": 588,
+      "y": 406,
+      "width": 388,
+      "height": 70,
+      "content": {
+        "text": "Faster incident triage\nwith agentic playbooks"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 21,
+        "fontWeight": 500,
+        "lineHeight": 1.35,
+        "color": "#334155"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "chart-heading",
+      "type": "text",
+      "name": "Chart Heading",
+      "x": 72,
+      "y": 560,
+      "width": 936,
+      "height": 44,
+      "content": {
+        "text": "TOP REPORTED VULNERABILITY VECTORS (%)"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 20,
+        "fontWeight": 700,
+        "letterSpacing": 1.2,
+        "color": "#0F172A"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-1-label",
+      "type": "text",
+      "name": "Bar 1 Label",
+      "x": 72,
+      "y": 640,
+      "width": 936,
+      "height": 34,
+      "content": {
+        "text": "Over-privileged IAM & Service Accounts — 68%"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 22,
+        "fontWeight": 600,
+        "color": "#334155"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-1-track",
+      "type": "rect",
+      "name": "Bar 1 Track",
+      "x": 72,
+      "y": 684,
+      "width": 936,
+      "height": 34,
+      "style": {
+        "fill": "#E2E8F0",
+        "borderRadius": 8
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-1-fill",
+      "type": "rect",
+      "name": "Bar 1 Fill",
+      "x": 72,
+      "y": 684,
+      "width": 636,
+      "height": 34,
+      "style": {
+        "fill": "#2563EB",
+        "borderRadius": 8
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-2-label",
+      "type": "text",
+      "name": "Bar 2 Label",
+      "x": 72,
+      "y": 756,
+      "width": 936,
+      "height": 34,
+      "content": {
+        "text": "Prompt Injection & Unsanitized Tool Calls — 54%"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 22,
+        "fontWeight": 600,
+        "color": "#334155"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-2-track",
+      "type": "rect",
+      "name": "Bar 2 Track",
+      "x": 72,
+      "y": 800,
+      "width": 936,
+      "height": 34,
+      "style": {
+        "fill": "#E2E8F0",
+        "borderRadius": 8
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-2-fill",
+      "type": "rect",
+      "name": "Bar 2 Fill",
+      "x": 72,
+      "y": 800,
+      "width": 505,
+      "height": 34,
+      "style": {
+        "fill": "#F43F5E",
+        "borderRadius": 8
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-3-label",
+      "type": "text",
+      "name": "Bar 3 Label",
+      "x": 72,
+      "y": 872,
+      "width": 936,
+      "height": 34,
+      "content": {
+        "text": "Unpatched Container Base Images — 41%"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 22,
+        "fontWeight": 600,
+        "color": "#334155"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-3-track",
+      "type": "rect",
+      "name": "Bar 3 Track",
+      "x": 72,
+      "y": 916,
+      "width": 936,
+      "height": 34,
+      "style": {
+        "fill": "#E2E8F0",
+        "borderRadius": 8
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "bar-3-fill",
+      "type": "rect",
+      "name": "Bar 3 Fill",
+      "x": 72,
+      "y": 916,
+      "width": 384,
+      "height": 34,
+      "style": {
+        "fill": "#0F172A",
+        "borderRadius": 8
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "takeaway-box",
+      "type": "rect",
+      "name": "Key Takeaway Box",
+      "x": 72,
+      "y": 1030,
+      "width": 936,
+      "height": 180,
+      "style": {
+        "fill": "#0F172A",
+        "borderRadius": 16
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "takeaway-txt",
+      "type": "text",
+      "name": "Key Takeaway",
+      "x": 112,
+      "y": 1066,
+      "width": 856,
+      "height": 110,
+      "content": {
+        "text": "KEY TAKEAWAY: Least-privilege tool sandboxing and continuous policy checks cut critical incidents by 61%."
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 26,
+        "fontWeight": 600,
+        "lineHeight": 1.45,
+        "color": "#F8FAFC"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "footer",
+      "type": "text",
+      "name": "Source Footer",
+      "x": 72,
+      "y": 1260,
+      "width": 936,
+      "height": 34,
+      "content": {
+        "text": "SOURCE: BAUHAUS SECURITY RESEARCH  •  N = 1,400 ENGINEERING TEAMS"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "letterSpacing": 1.5,
+        "color": "#64748B"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    }
+  ],
+  "assets": [],
+  "updatedAt": "2026-11-27T10:26:54.319Z"
+}

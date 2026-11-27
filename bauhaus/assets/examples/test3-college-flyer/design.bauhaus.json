@@ -1,0 +1,407 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "gec-kalotsavam-flyer-2026",
+  "title": "Kalotsavam & Technofest 2026 College Flyer",
+  "category": "flyer",
+  "canvas": {
+    "width": 1240,
+    "height": 1754,
+    "unit": "px",
+    "dpi": 150,
+    "bleed": 36,
+    "background": {
+      "type": "solid",
+      "color": "#FAF8F4"
+    }
+  },
+  "fonts": [
+    {
+      "family": "Playfair Display",
+      "source": "google",
+      "weights": [
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Inter",
+      "source": "google",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Noto Sans Malayalam",
+      "source": "google",
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "Noto Sans Devanagari",
+      "source": "google",
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    }
+  ],
+  "metadata": {
+    "brief": "Multilingual college arts and technical symposium flyer with print-ready PDF export",
+    "creativeDirection": "Structured academic editorial flyer with indigo header, warm gold accents, and clean multilingual typography",
+    "targetAudience": "College students, faculty, and visiting teams",
+    "languages": [
+      "en",
+      "ml",
+      "hi"
+    ],
+    "palette": [
+      "#FAF8F4",
+      "#1E2A78",
+      "#D97706",
+      "#1F2937"
+    ]
+  },
+  "elements": [
+    {
+      "id": "header-banner",
+      "type": "rect",
+      "name": "Indigo Header Block",
+      "x": 0,
+      "y": 0,
+      "width": 1240,
+      "height": 470,
+      "style": {
+        "fill": "#1E2A78"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "gold-accent-strip",
+      "type": "rect",
+      "name": "Gold Accent Strip",
+      "x": 0,
+      "y": 470,
+      "width": 1240,
+      "height": 14,
+      "style": {
+        "fill": "#D97706"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "college-eyebrow",
+      "type": "text",
+      "name": "Institution Name",
+      "x": 96,
+      "y": 76,
+      "width": 1048,
+      "height": 36,
+      "content": {
+        "text": "GOVERNMENT ENGINEERING COLLEGE, THRISSUR  •  ANNUAL SYMPOSIUM"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "letterSpacing": 2.2,
+        "color": "#FCD34D"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "flyer-title",
+      "type": "text",
+      "name": "Event Title",
+      "x": 96,
+      "y": 140,
+      "width": 1048,
+      "height": 180,
+      "content": {
+        "text": "Kalotsavam &\nTechnofest 2026"
+      },
+      "style": {
+        "fontFamily": "Playfair Display",
+        "fontSize": 84,
+        "fontWeight": 700,
+        "lineHeight": 1.06,
+        "color": "#FFFFFF"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "malayalam-subtitle",
+      "type": "text",
+      "name": "Malayalam Subtitle",
+      "x": 96,
+      "y": 352,
+      "width": 1048,
+      "height": 64,
+      "content": {
+        "text": "കലോത്സവം & ടെക്നോഫെസ്റ്റ് 2026 — സൃഷ്ടി, സംസ്കാരം, സാങ്കേതികത",
+        "lang": "ml"
+      },
+      "style": {
+        "fontFamily": "Noto Sans Malayalam",
+        "fontSize": 28,
+        "fontWeight": 600,
+        "color": "#E0E7FF"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "hindi-welcome",
+      "type": "text",
+      "name": "Hindi Welcome Banner",
+      "x": 96,
+      "y": 530,
+      "width": 1048,
+      "height": 54,
+      "content": {
+        "text": "सभी छात्रों एवं प्रतिभागियों का हार्दिक स्वागत है  |  NOV 20–22, 2026",
+        "lang": "hi"
+      },
+      "style": {
+        "fontFamily": "Noto Sans Devanagari",
+        "fontSize": 24,
+        "fontWeight": 600,
+        "color": "#1E2A78"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "card-cultural",
+      "type": "rect",
+      "name": "Cultural Card",
+      "x": 96,
+      "y": 620,
+      "width": 500,
+      "height": 500,
+      "style": {
+        "fill": "#FFFFFF",
+        "stroke": "#E5E7EB",
+        "strokeWidth": 2,
+        "borderRadius": 14,
+        "shadow": {
+          "x": 0,
+          "y": 8,
+          "blur": 20,
+          "color": "rgba(17,24,39,0.06)"
+        }
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "card-cultural-text",
+      "type": "text",
+      "name": "Cultural Events",
+      "x": 134,
+      "y": 660,
+      "width": 424,
+      "height": 420,
+      "content": {
+        "text": "ARTS & CULTURE\n\n• Classical & Folk Dance\n• Acoustic Band Battle\n• Short Film Screening\n• Literary & Debate Finals\n• Photography Walk"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 26,
+        "fontWeight": 500,
+        "lineHeight": 1.65,
+        "color": "#1F2937"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "card-tech",
+      "type": "rect",
+      "name": "Technical Card",
+      "x": 644,
+      "y": 620,
+      "width": 500,
+      "height": 500,
+      "style": {
+        "fill": "#FFFFFF",
+        "stroke": "#E5E7EB",
+        "strokeWidth": 2,
+        "borderRadius": 14,
+        "shadow": {
+          "x": 0,
+          "y": 8,
+          "blur": 20,
+          "color": "rgba(17,24,39,0.06)"
+        }
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "card-tech-text",
+      "type": "text",
+      "name": "Technical Events",
+      "x": 682,
+      "y": 660,
+      "width": 424,
+      "height": 420,
+      "content": {
+        "text": "TECH & ENGINEERING\n\n• 24h Robotics Challenge\n• Embedded IoT Sprint\n• Open-Source Designathon\n• Structural Bridge Lab\n• Paper Presentation"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 26,
+        "fontWeight": 500,
+        "lineHeight": 1.65,
+        "color": "#1F2937"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "schedule-box",
+      "type": "rect",
+      "name": "Venue & Registration Box",
+      "x": 96,
+      "y": 1170,
+      "width": 1048,
+      "height": 260,
+      "style": {
+        "fill": "#EEF2FF",
+        "stroke": "#C7D2FE",
+        "strokeWidth": 2,
+        "borderRadius": 14
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "schedule-text",
+      "type": "text",
+      "name": "Schedule & Venue Details",
+      "x": 138,
+      "y": 1206,
+      "width": 964,
+      "height": 190,
+      "content": {
+        "text": "VENUE: Main Auditorium & Engineering Block B\nDATES: 20–22 November 2026  |  09:00 AM – 06:30 PM\nENTRY: Open to all college students with valid ID"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 26,
+        "fontWeight": 600,
+        "lineHeight": 1.65,
+        "color": "#1E2A78"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "footer-cta",
+      "type": "rect",
+      "name": "Footer CTA",
+      "x": 96,
+      "y": 1490,
+      "width": 1048,
+      "height": 110,
+      "style": {
+        "fill": "#D97706",
+        "borderRadius": 12
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "footer-cta-text",
+      "type": "text",
+      "name": "Footer CTA Text",
+      "x": 96,
+      "y": 1490,
+      "width": 1048,
+      "height": 110,
+      "content": {
+        "text": "REGISTER AT FEST.GECT.AC.IN  •  CONTACT: +91 487 2334144"
+      },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 26,
+        "fontWeight": 700,
+        "letterSpacing": 0.8,
+        "color": "#FFFFFF",
+        "textAlign": "center",
+        "verticalAlign": "middle"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    }
+  ],
+  "assets": [],
+  "updatedAt": "2026-11-27T10:36:07.888Z"
+}

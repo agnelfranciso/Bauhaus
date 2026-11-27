@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bauhaus — Design Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700&family=Bebas+Neue&family=Bricolage+Grotesque:wght@500;700;800&family=Cinzel:wght@600;700&family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&family=Figtree:wght@400;600;700&family=Fira+Code:wght@400;600&family=Fraunces:wght@600;700&family=Gayathri:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@400;600;700&family=Instrument+Serif&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Lato:wght@400;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;600;700&family=Manjari:wght@400;700&family=Manrope:wght@400;600;700&family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Nunito:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Oswald:wght@500;700&family=Outfit:wght@400;600;700;800&family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&family=Raleway:wght@400;600;700&family=Rubik:wght@400;600;700&family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&family=Unbounded:wght@600;700&family=Urbanist:wght@400;600;700&family=Work+Sans:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="/studio.css" />
+  <div id="dynamic-fonts"></div>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <button id="btn-home-dash" class="brand-btn" title="Open Dashboard">
+        <img src="/logo.svg" alt="Bauhaus" class="brand-svg" />
+        <span class="brand-name">Bauhaus</span>
+      </button>
+    <div id="topbar-doc-meta" class="topbar-meta">
+      <span class="sep"></span>
+      <input id="doc-title-input" class="doc-title-input" value="Untitled Design" title="Rename design" />
+      <span id="doc-dims" class="doc-dims">1080 × 1350</span>
+    </div>
+    </div>
+
+    <div id="topbar-editor-center" class="topbar-center">
+      <button id="btn-undo" class="icon-btn" title="Undo (Ctrl+Z)" data-icon="undo"></button>
+      <button id="btn-redo" class="icon-btn" title="Redo (Ctrl+Shift+Z)" data-icon="redo"></button>
+      <span class="sep"></span>
+      <span class="status-dot"></span>
+      <span id="status-bar" class="status-pill">Synced</span>
+    </div>
+
+    <div id="topbar-editor-right" class="topbar-right">
+      <button id="btn-save" class="btn-ghost" data-icon="save">Save</button>
+      <div class="export-group">
+        <select id="export-format" title="Export format">
+          <option value="png">PNG</option>
+          <option value="jpeg">JPEG</option>
+          <option value="webp">WebP</option>
+          <option value="svg">SVG</option>
+          <option value="pdf">PDF</option>
+          <option value="print-pdf">Print PDF</option>
+          <option value="html">HTML</option>
+          <option value="json">JSON</option>
+        </select>
+        <button id="btn-export" class="btn-primary" data-icon="export">Download</button>
+      </div>
+    </div>
+
+    <div id="topbar-dash-right" class="topbar-right hidden">
+      <button id="btn-top-resume" class="btn-secondary" data-icon="arrowRight">Open Editor</button>
+    </div>
+  </header>
+
+  <!-- MAIN DESIGN STUDIO -->
+  <main id="studio-view" class="studio-shell">
+    <!-- Slim Tool Rail -->
+    <nav class="tool-rail" aria-label="Design Tools">
+      <button class="rail-btn active" data-drawer="layers" data-icon="layers"><span>Layers</span></button>
+      <button class="rail-btn" data-drawer="projects" data-icon="templates"><span>Projects</span></button>
+      <button class="rail-btn" data-drawer="elements" data-icon="elements"><span>Elements</span></button>
+      <button class="rail-btn" data-drawer="text" data-icon="text"><span>Text</span></button>
+      <button class="rail-btn" data-drawer="upload" data-icon="upload"><span>Uploads</span></button>
+      <button class="rail-btn" data-drawer="canvas" data-icon="canvas"><span>Page</span></button>
+    </nav>
+
+    <!-- Expandable Tool Drawer -->
+    <aside class="drawer-panel">
+      <!-- Layers Drawer (Default) -->
+      <div id="drawer-layers" class="drawer-pane active">
+        <div class="drawer-header">
+          <span id="layer-count">Layers (0)</span>
+          <div class="layer-actions">
+            <button id="btn-layer-up" title="Bring Forward" data-icon="arrowUp"></button>
+            <button id="btn-layer-down" title="Send Backward" data-icon="arrowDown"></button>
+            <button id="btn-duplicate" title="Duplicate (Ctrl+D)" data-icon="duplicate"></button>
+            <button id="btn-delete" title="Delete (Del)" data-icon="trash"></button>
+          </div>
+        </div>
+        <ul id="layers-list" class="layers-list"></ul>
+      </div>
+
+      <!-- Projects Drawer -->
+      <div id="drawer-projects" class="drawer-pane">
+        <div class="drawer-header">
+          <span>Projects</span>
+          <button id="btn-refresh-gallery" class="icon-btn" title="Refresh" data-icon="refresh"></button>
+        </div>
+        <div id="sidebar-projects-list" class="gallery-grid"></div>
+      </div>
+
+      <!-- Elements Drawer -->
+      <div id="drawer-elements" class="drawer-pane">
+        <div class="drawer-header"><span>Shapes &amp; Elements</span></div>
+        <div class="drawer-body">
+          <div class="section-label">Basic Shapes</div>
+          <div class="shapes-grid">
+            <button id="btn-add-rect" class="shape-tile" data-icon="rect"><span>Rectangle</span></button>
+            <button id="btn-add-ellipse" class="shape-tile" data-icon="circle"><span>Circle</span></button>
+            <button id="btn-add-line" class="shape-tile" data-icon="line"><span>Line</span></button>
+            <button id="btn-add-polygon" class="shape-tile" data-icon="polygon"><span>Polygon</span></button>
+          </div>
+          <div class="section-label">Cards &amp; Badges</div>
+          <div class="preset-stack">
+            <button id="btn-add-card" class="preset-item">
+              <strong>Rounded Card</strong>
+              <span>Soft container with border</span>
+            </button>
+            <button id="btn-add-pill" class="preset-item">
+              <strong>Accent Pill Badge</strong>
+              <span>CTA or eyebrow container</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Presets Drawer -->
+      <div id="drawer-text" class="drawer-pane">
+        <div class="drawer-header"><span>Typography</span></div>
+        <div class="drawer-body">
+          <button id="btn-add-text" class="btn-primary full-btn" data-icon="text">Add Text Box</button>
+          <div class="section-label">Click to Add</div>
+          <div class="preset-stack">
+            <button id="btn-text-display" class="text-preset display">Add a Display Heading</button>
+            <button id="btn-text-sub" class="text-preset sub">Add a Subheading</button>
+            <button id="btn-text-body" class="text-preset body">Add body copy for descriptions and details.</button>
+            <button id="btn-text-mono" class="text-preset mono">01 // MONOSPACE LABEL</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload & Decode Drawer -->
+      <div id="drawer-upload" class="drawer-pane">
+        <div class="drawer-header"><span>Uploads &amp; AI Decode</span></div>
+        <div class="drawer-body">
+          <div id="drop-zone" class="drop-zone">
+            <input id="file-input" type="file" accept="image/*,.svg,.json" hidden />
+            <div class="drop-icon" data-icon="upload"></div>
+            <div class="drop-title">Drop image, SVG, or JSON</div>
+            <div class="drop-sub">Extracts palette, dimensions &amp; inserts onto canvas</div>
+            <button id="btn-browse-file" class="btn-secondary" type="button">Upload File</button>
+          </div>
+
+          <div id="decode-result" class="decode-result hidden">
+            <img id="decode-preview" class="decode-preview" alt="Uploaded preview" />
+            <div id="decode-summary" class="decode-summary"></div>
+            <div id="decode-palette" class="decode-palette"></div>
+            <div class="decode-actions">
+              <button id="btn-insert-upload" class="btn-primary">Add to Canvas</button>
+              <button id="btn-copy-brief" class="btn-secondary">Copy AI Brief</button>
+            </div>
+            <textarea id="decode-brief" class="decode-brief" rows="4" readonly></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page / Canvas Settings Drawer -->
+      <div id="drawer-canvas" class="drawer-pane">
+        <div class="drawer-header"><span>Page Setup</span></div>
+        <div class="drawer-body">
+          <div class="section-label">Resize Canvas</div>
+          <div class="preset-stack" id="drawer-page-presets">
+            <button class="preset-item" data-pw="1080" data-ph="1350"><strong>Portrait Poster</strong><span>1080 × 1350 px</span></button>
+            <button class="preset-item" data-pw="1080" data-ph="1080"><strong>Instagram Square</strong><span>1080 × 1080 px</span></button>
+            <button class="preset-item" data-pw="1200" data-ph="628"><strong>Social / LinkedIn Banner</strong><span>1200 × 628 px</span></button>
+            <button class="preset-item" data-pw="1240" data-ph="1754"><strong>Print Flyer (A5)</strong><span>1240 × 1754 px</span></button>
+            <button class="preset-item" data-pw="1280" data-ph="720"><strong>Presentation / Thumb</strong><span>1280 × 720 px</span></button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Canvas Viewport -->
+    <section id="viewport" class="viewport">
+      <!-- Floating Selection Bar -->
+      <div id="context-bar" class="context-bar hidden">
+        <button id="ctx-ask-ai" class="ctx-ai-btn" title="Copy element ID for AI" data-icon="sparkles">Ask AI</button>
+        <span class="sep"></span>
+        <button id="ctx-dup" title="Duplicate (Ctrl+D)" data-icon="duplicate">Duplicate</button>
+        <button id="ctx-up" title="Bring Forward" data-icon="arrowUp"></button>
+        <button id="ctx-down" title="Send Backward" data-icon="arrowDown"></button>
+        <span class="sep"></span>
+        <button id="ctx-del" title="Delete (Del)" data-icon="trash"></button>
+      </div>
+
+      <!-- Right-Click Context Menu -->
+      <div id="context-menu" class="context-menu hidden" role="menu">
+        <button id="rc-ask-ai" class="ctx-menu-item accent" data-icon="sparkles">Ask AI (Copy Element ID)</button>
+        <button id="rc-ask-prompt" class="ctx-menu-item" data-icon="text">Ask AI with Instruction...</button>
+        <div class="ctx-sep"></div>
+        <button id="rc-dup" class="ctx-menu-item" data-icon="duplicate">Duplicate</button>
+        <button id="rc-up" class="ctx-menu-item" data-icon="arrowUp">Bring Forward</button>
+        <button id="rc-down" class="ctx-menu-item" data-icon="arrowDown">Send Backward</button>
+        <button id="rc-lock" class="ctx-menu-item" data-icon="lock">Toggle Lock</button>
+        <div class="ctx-sep"></div>
+        <button id="rc-del" class="ctx-menu-item danger" data-icon="trash">Delete</button>
+      </div>
+
+      <!-- Leave Editor Confirmation Modal -->
+      <div id="leave-modal" class="modal-backdrop hidden">
+        <div class="modal-card">
+          <div class="modal-head">
+            <span>Return to Dashboard?</span>
+            <button id="leave-modal-close" class="icon-btn" type="button">×</button>
+          </div>
+          <p style="margin:0;color:var(--muted);line-height:1.5;">You are leaving the current design editor. Save your latest changes before returning to the Dashboard?</p>
+          <div class="modal-actions" style="gap:8px;">
+            <button id="leave-cancel" class="btn-ghost" type="button">Stay</button>
+            <button id="leave-discard" class="btn-secondary" type="button">Leave</button>
+            <button id="leave-save" class="btn-primary" type="button" data-icon="save">Save &amp; Leave</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ask AI Instruction Popover -->
+      <div id="ai-prompt-modal" class="modal-backdrop hidden">
+        <div class="modal-card">
+          <div class="modal-head">
+            <span data-icon="sparkles">Ask AI About Selected Element</span>
+            <button id="ai-modal-close" class="icon-btn" type="button">×</button>
+          </div>
+          <div id="ai-modal-ref" class="ai-ref-badge"></div>
+          <textarea id="ai-modal-input" rows="3" placeholder="Describe what you want Bauhaus AI to change (e.g., 'Make this headline larger, use Syne Bold, and align with the left margin')"></textarea>
+          <div class="modal-actions">
+            <button id="ai-modal-copy" class="btn-primary" data-icon="sparkles">Copy Prompt + Element ID</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="canvas-stage" class="canvas-stage">
+        <div id="artboard-label" class="artboard-label">Untitled Design — 1080 × 1350</div>
+        <div id="artboard-wrap" class="artboard-wrap">
+          <div id="svg-host"></div>
+          <div id="selection-overlay" class="selection-overlay hidden">
+            <div class="handle nw" data-handle="nw"></div>
+            <div class="handle n" data-handle="n"></div>
+            <div class="handle ne" data-handle="ne"></div>
+            <div class="handle e" data-handle="e"></div>
+            <div class="handle se" data-handle="se"></div>
+            <div class="handle s" data-handle="s"></div>
+            <div class="handle sw" data-handle="sw"></div>
+            <div class="handle w" data-handle="w"></div>
+            <div class="handle-rot" data-handle="rot" title="Rotate"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Zoom Pill -->
+      <div class="zoom-pill">
+        <button id="btn-zoom-out" class="icon-btn" title="Zoom Out" data-icon="zoomOut"></button>
+        <span id="zoom-label" class="zoom-label">100%</span>
+        <button id="btn-zoom-in" class="icon-btn" title="Zoom In" data-icon="zoomIn"></button>
+        <span class="sep"></span>
+        <button id="btn-zoom-fit" class="dock-btn" title="Fit to Screen" data-icon="fit"><span>Fit</span></button>
+      </div>
+    </section>
+
+    <!-- Right Properties Inspector -->
+    <aside class="panel inspector-panel">
+      <div id="inspector-title" class="panel-header">Page Properties</div>
+      <div id="inspector-body" class="inspector-body"></div>
+    </aside>
+  </main>
+
+  <!-- DASHBOARD / TEMPLATES HOME -->
+  <section id="dashboard-view" class="dashboard-view hidden">
+    <div class="dash-container">
+      <div class="dash-hero">
+        <div class="dash-hero-left">
+          <img src="/logo.svg" alt="Bauhaus" class="dash-hero-logo" />
+          <div>
+            <h1>Bauhaus Design Studio</h1>
+            <p>Agent-crafted, template-free visual designs. Open any project below to inspect, refine, Ask AI, and export.</p>
+          </div>
+        </div>
+        <div class="dash-hero-actions">
+          <button id="btn-resume-studio" class="btn-primary" data-icon="arrowRight">Return to Editor</button>
+        </div>
+      </div>
+
+      <!-- Your Projects -->
+      <div id="your-projects-section" class="dash-section">
+        <div class="dash-section-head">
+          <h2>Your Projects</h2>
+          <span id="projects-count" class="dash-hint">0 saved projects</span>
+        </div>
+        <div id="projects-list" class="projects-grid"></div>
+      </div>
+
+      <div class="dash-section">
+        <div class="dash-section-head">
+          <h2>Showcase Designs</h2>
+          <div id="dash-filters" class="filter-pills">
+            <button class="filter-pill active" data-cat="all">All</button>
+            <button class="filter-pill" data-cat="poster">Poster</button>
+            <button class="filter-pill" data-cat="social">Social</button>
+            <button class="filter-pill" data-cat="banner">Banner</button>
+            <button class="filter-pill" data-cat="flyer">Flyer</button>
+            <button class="filter-pill" data-cat="infographic">Infographic</button>
+          </div>
+        </div>
+        <div id="dash-gallery" class="dash-gallery"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast hidden"></div>
+  <script type="module" src="/studio.js"></script>
+</body>
+</html>

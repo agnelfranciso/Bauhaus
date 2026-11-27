@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#111114"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" stroke="rgba(255,255,255,0.1)"/>
+  <!-- Stem -->
+  <rect x="16" y="14" width="9" height="36" rx="1.5" fill="#FAFAFA"/>
+  <!-- Upper counter: Vermilion -->
+  <path d="M28 14 H37 A9 9 0 0 1 37 30.5 H28 V14 Z" fill="#E03C31"/>
+  <!-- Lower counter: Cobalt -->
+  <path d="M28 33.5 H39 A8.25 8.25 0 0 1 39 50 H28 V33.5 Z" fill="#2563EB"/>
+</svg>

@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "solstice-social-promo",
+  "title": "Solstice Roasters Autumn Promo",
+  "category": "social",
+  "canvas": {
+    "width": 1080,
+    "height": 1080,
+    "unit": "px",
+    "dpi": 72,
+    "bleed": 0,
+    "background": { "type": "solid", "color": "#F6F2EA" }
+  },
+  "fonts": [
+    { "family": "Outfit", "source": "google", "weights": [600, 700, 800] },
+    { "family": "DM Sans", "source": "google", "weights": [400, 500, 700] }
+  ],
+  "metadata": {
+    "brief": "Instagram square promotional creative for specialty coffee subscription",
+    "creativeDirection": "Warm editorial minimalism with forest green anchor, terracotta accent, and bold typographic offer",
+    "targetAudience": "Specialty coffee drinkers, urban professionals",
+    "languages": ["en"],
+    "palette": ["#F6F2EA", "#11382B", "#E05A3A", "#1C1917"]
+  },
+  "elements": [
+    {
+      "id": "right-panel",
+      "type": "rect",
+      "name": "Forest Green Feature Panel",
+      "x": 580,
+      "y": 0,
+      "width": 500,
+      "height": 1080,
+      "style": { "fill": "#11382B" }
+    },
+    {
+      "id": "terracotta-arc",
+      "type": "ellipse",
+      "name": "Terracotta Sun Circle",
+      "x": 635,
+      "y": 190,
+      "width": 390,
+      "height": 390,
+      "style": { "fill": "#E05A3A" }
+    },
+    {
+      "id": "coffee-cup-svg",
+      "type": "svg",
+      "name": "Roast Vessel Illustration",
+      "x": 700,
+      "y": 240,
+      "width": 260,
+      "height": 320,
+      "content": {
+        "viewBox": "0 0 200 240",
+        "svgMarkup": "<svg viewBox='0 0 200 240' xmlns='http://www.w3.org/2000/svg'><rect x='42' y='64' width='116' height='140' rx='16' fill='#F6F2EA'/><rect x='56' y='96' width='88' height='64' rx='8' fill='#11382B'/><circle cx='100' cy='128' r='16' fill='#E05A3A'/><path d='M58 64 L72 34 H128 L142 64 Z' fill='#E7DFD1'/><path d='M82 20 C82 10 92 10 92 20 M108 20 C108 10 118 10 118 20' stroke='#F6F2EA' stroke-width='4' stroke-linecap='round' fill='none'/></svg>"
+      }
+    },
+    {
+      "id": "brand-eyebrow",
+      "type": "text",
+      "name": "Brand Name",
+      "x": 72,
+      "y": 84,
+      "width": 440,
+      "height": 34,
+      "content": { "text": "SOLSTICE ROASTERS" },
+      "style": {
+        "fontFamily": "DM Sans",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "letterSpacing": 3,
+        "color": "#11382B"
+      }
+    },
+    {
+      "id": "promo-headline",
+      "type": "text",
+      "name": "Offer Headline",
+      "x": 72,
+      "y": 190,
+      "width": 460,
+      "height": 330,
+      "content": { "text": "25% OFF\nAUTUMN\nRESERVE" },
+      "style": {
+        "fontFamily": "Outfit",
+        "fontSize": 96,
+        "fontWeight": 800,
+        "lineHeight": 0.98,
+        "letterSpacing": -2,
+        "color": "#1C1917"
+      }
+    },
+    {
+      "id": "promo-copy",
+      "type": "text",
+      "name": "Product Description",
+      "x": 72,
+      "y": 546,
+      "width": 440,
+      "height": 130,
+      "content": { "text": "Single-origin Ethiopian Yirgacheffe & Wayanad estate micro-lots, roasted fresh every Tuesday." },
+      "style": {
+        "fontFamily": "DM Sans",
+        "fontSize": 25,
+        "fontWeight": 400,
+        "lineHeight": 1.42,
+        "color": "#44403C"
+      }
+    },
+    {
+      "id": "promo-badge",
+      "type": "rect",
+      "name": "Promo Code Pill",
+      "x": 72,
+      "y": 736,
+      "width": 370,
+      "height": 76,
+      "style": {
+        "fill": "#E05A3A",
+        "borderRadius": 10
+      }
+    },
+    {
+      "id": "promo-code-text",
+      "type": "text",
+      "name": "Promo Code Text",
+      "x": 72,
+      "y": 736,
+      "width": 370,
+      "height": 76,
+      "content": { "text": "USE CODE: AUTUMN25" },
+      "style": {
+        "fontFamily": "Outfit",
+        "fontSize": 24,
+        "fontWeight": 700,
+        "letterSpacing": 1.5,
+        "color": "#FFFFFF",
+        "textAlign": "center",
+        "verticalAlign": "middle"
+      }
+    },
+    {
+      "id": "origin-card",
+      "type": "rect",
+      "name": "Tasting Notes Card",
+      "x": 635,
+      "y": 650,
+      "width": 390,
+      "height": 290,
+      "style": {
+        "fill": "rgba(246, 242, 234, 0.08)",
+        "stroke": "rgba(246, 242, 234, 0.25)",
+        "strokeWidth": 1.5,
+        "borderRadius": 14
+      }
+    },
+    {
+      "id": "tasting-notes",
+      "type": "text",
+      "name": "Tasting Notes",
+      "x": 668,
+      "y": 686,
+      "width": 324,
+      "height": 220,
+      "content": { "text": "TASTING NOTES\nBergamot • Dark Cocoa\nRoasted Hazelnut\n\nFREE SHIPPING\nON FIRST BAG" },
+      "style": {
+        "fontFamily": "DM Sans",
+        "fontSize": 22,
+        "fontWeight": 500,
+        "lineHeight": 1.45,
+        "color": "#F6F2EA"
+      }
+    },
+    {
+      "id": "footer-url",
+      "type": "text",
+      "name": "Website URL",
+      "x": 72,
+      "y": 958,
+      "width": 440,
+      "height": 40,
+      "content": { "text": "solsticeroasters.in" },
+      "style": {
+        "fontFamily": "DM Sans",
+        "fontSize": 22,
+        "fontWeight": 700,
+        "color": "#11382B"
+      }
+    }
+  ]
+}

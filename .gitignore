@@ -1,0 +1,10 @@
+node_modules/
+bauhaus/node_modules/
+bauhaus/exports/
+bauhaus/assets/uploads/*
+!bauhaus/assets/uploads/.gitkeep
+.agents/
+test/
+*.log
+.DS_Store
+Thumbs.db

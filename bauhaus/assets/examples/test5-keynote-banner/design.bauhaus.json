@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "launch-keynote-banner",
+  "title": "NovaOS 4.0 Product Launch Banner",
+  "category": "banner",
+  "canvas": {
+    "width": 1200,
+    "height": 628,
+    "unit": "px",
+    "dpi": 72,
+    "bleed": 0,
+    "background": {
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        { "offset": 0, "color": "#09090B" },
+        { "offset": 0.6, "color": "#13111C" },
+        { "offset": 1, "color": "#1E1B4B" }
+      ]
+    }
+  },
+  "fonts": [
+    { "family": "Space Grotesk", "source": "google", "weights": [600, 700] },
+    { "family": "Inter", "source": "google", "weights": [400, 500, 600] },
+    { "family": "JetBrains Mono", "source": "google", "weights": [500, 700] }
+  ],
+  "metadata": {
+    "brief": "LinkedIn / X product launch keynote banner (1200x628)",
+    "creativeDirection": "Deep obsidian-indigo gradient with violet glow, crisp typographic announcement, and floating UI telemetry card",
+    "targetAudience": "Developers, founders, product teams",
+    "languages": ["en"],
+    "palette": ["#09090B", "#1E1B4B", "#8B5CF6", "#10B981", "#F8FAFC"]
+  },
+  "elements": [
+    {
+      "id": "violet-glow",
+      "type": "ellipse",
+      "name": "Violet Ambient Glow",
+      "x": 640,
+      "y": -100,
+      "width": 640,
+      "height": 640,
+      "opacity": 0.25,
+      "style": {
+        "fill": {
+          "type": "radial",
+          "stops": [
+            { "offset": 0, "color": "#8B5CF6" },
+            { "offset": 1, "color": "rgba(139,92,246,0)" }
+          ]
+        }
+      }
+    },
+    {
+      "id": "eyebrow-pill",
+      "type": "rect",
+      "name": "Release Pill",
+      "x": 64,
+      "y": 72,
+      "width": 230,
+      "height": 36,
+      "style": {
+        "fill": "rgba(16, 185, 129, 0.14)",
+        "stroke": "#10B981",
+        "strokeWidth": 1.5,
+        "borderRadius": 18
+      }
+    },
+    {
+      "id": "eyebrow-text",
+      "type": "text",
+      "name": "Release Label",
+      "x": 64,
+      "y": 72,
+      "width": 230,
+      "height": 36,
+      "content": { "text": "● LIVE RELEASE v4.0" },
+      "style": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": 13,
+        "fontWeight": 700,
+        "color": "#34D399",
+        "textAlign": "center",
+        "verticalAlign": "middle"
+      }
+    },
+    {
+      "id": "headline",
+      "type": "text",
+      "name": "Launch Headline",
+      "x": 64,
+      "y": 140,
+      "width": 600,
+      "height": 190,
+      "content": { "text": "Build 10× faster\nwith NovaOS 4.0" },
+      "style": {
+        "fontFamily": "Space Grotesk",
+        "fontSize": 70,
+        "fontWeight": 700,
+        "lineHeight": 1.04,
+        "letterSpacing": -2,
+        "color": "#F8FAFC"
+      }
+    },
+    {
+      "id": "subcopy",
+      "type": "text",
+      "name": "Subheadline",
+      "x": 64,
+      "y": 352,
+      "width": 560,
+      "height": 90,
+      "content": { "text": "Zero-cold-start edge runtimes, native AI workflows, and real-time observability in a single binary." },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 22,
+        "fontWeight": 400,
+        "lineHeight": 1.45,
+        "color": "#CBD5E1"
+      }
+    },
+    {
+      "id": "cta-btn",
+      "type": "rect",
+      "name": "CTA Button",
+      "x": 64,
+      "y": 484,
+      "width": 260,
+      "height": 58,
+      "style": { "fill": "#8B5CF6", "borderRadius": 10 }
+    },
+    {
+      "id": "cta-label",
+      "type": "text",
+      "name": "CTA Label",
+      "x": 64,
+      "y": 484,
+      "width": 260,
+      "height": 58,
+      "content": { "text": "Watch Keynote →" },
+      "style": {
+        "fontFamily": "Inter",
+        "fontSize": 20,
+        "fontWeight": 600,
+        "color": "#FFFFFF",
+        "textAlign": "center",
+        "verticalAlign": "middle"
+      }
+    },
+    {
+      "id": "ui-card",
+      "type": "rect",
+      "name": "Telemetry Mockup Card",
+      "x": 700,
+      "y": 96,
+      "width": 436,
+      "height": 436,
+      "style": {
+        "fill": "rgba(17, 24, 39, 0.85)",
+        "stroke": "#334155",
+        "strokeWidth": 1.5,
+        "borderRadius": 16,
+        "shadow": { "x": 0, "y": 24, "blur": 48, "color": "rgba(0,0,0,0.5)" }
+      }
+    },
+    {
+      "id": "ui-card-label",
+      "type": "text",
+      "name": "Card Metric Label",
+      "x": 736,
+      "y": 130,
+      "width": 360,
+      "height": 34,
+      "content": { "text": "EDGE LATENCY (P99)" },
+      "style": {
+        "fontFamily": "JetBrains Mono",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "letterSpacing": 1.5,
+        "color": "#94A3B8"
+      }
+    },
+    {
+      "id": "ui-card-title",
+      "type": "text",
+      "name": "Card Metric Value",
+      "x": 736,
+      "y": 170,
+      "width": 360,
+      "height": 86,
+      "content": { "text": "1.8 ms" },
+      "style": {
+        "fontFamily": "Space Grotesk",
+        "fontSize": 68,
+        "fontWeight": 700,
+        "lineHeight": 1.05,
+        "color": "#10B981"
+      }
+    },
+    {
+      "id": "chart-svg",
+      "type": "svg",
+      "name": "Sparkline Chart",
+      "x": 736,
+      "y": 286,
+      "width": 364,
+      "height": 190,
+      "content": {
+        "viewBox": "0 0 364 190",
+        "svgMarkup": "<svg viewBox='0 0 364 190' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='140' width='40' height='50' rx='6' fill='#334155'/><rect x='54' y='110' width='40' height='80' rx='6' fill='#334155'/><rect x='108' y='85' width='40' height='105' rx='6' fill='#475569'/><rect x='162' y='60' width='40' height='130' rx='6' fill='#6366F1'/><rect x='216' y='35' width='40' height='155' rx='6' fill='#8B5CF6'/><rect x='270' y='12' width='40' height='178' rx='6' fill='#10B981'/></svg>"
+      }
+    }
+  ]
+}

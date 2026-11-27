@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs>
+    <linearGradient id="canvas-bg-grad" x1="32.9%" y1="3.0%" x2="67.1%" y2="97.0%"><stop offset="0%" stop-color="#060911" /><stop offset="55%" stop-color="#0B1324" /><stop offset="100%" stop-color="#070B14" /></linearGradient>
+    <radialGradient id="grad-glow-orb-1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00F0FF" /><stop offset="100%" stop-color="rgba(0,240,255,0)" /></radialGradient>
+  </defs>
+  <rect x="0" y="0" width="1080" height="1350" fill="url(#canvas-bg-grad)" />
+  <g transform="translate(0, 0)">
+    <ellipse data-element-id="glow-orb-1" opacity="0.14" cx="930" cy="170" rx="310" ry="310" fill="url(#grad-glow-orb-1)" />
+  <rect data-element-id="grid-border" opacity="1" x="48" y="48" width="984" height="1254" rx="0" fill="none" stroke="#1E293B" stroke-width="2" />
+  <rect data-element-id="eyebrow-badge" opacity="1" x="84" y="92" width="360" height="40" rx="4" fill="rgba(0, 240, 255, 0.1)" stroke="#00F0FF" stroke-width="1.5" />
+  <text data-element-id="eyebrow-text" opacity="1" y="92" font-family="JetBrains Mono" font-size="15" font-weight="700" font-style="normal" letter-spacing="2px" text-anchor="middle" fill="#00F0FF"><tspan x="264" dy="15">NATIONAL CTF &amp; SECURITY SUMMIT</tspan></text>
+  <svg data-element-id="shield-icon" opacity="1" x="846" y="84" width="140" height="140" viewBox="0 0 120 120"><path d='M60 10 L104 28 V60 C104 86 84 104 60 112 C36 104 16 86 16 60 V28 Z' fill='rgba(0,240,255,0.08)' stroke='#00F0FF' stroke-width='2.5'/><path d='M60 28 L88 40 V60 C88 77 75 90 60 96 C45 90 32 77 32 60 V40 Z' fill='none' stroke='#FFB800' stroke-width='1.5' stroke-dasharray='4 4'/><circle cx='60' cy='58' r='10' fill='#00F0FF'/><path d='M60 68 V82' stroke='#00F0FF' stroke-width='3' stroke-linecap='round'/></svg>
+  <text data-element-id="hero-title" opacity="1" y="190" font-family="Space Grotesk" font-size="116" font-weight="700" font-style="normal" letter-spacing="-3px" text-anchor="start" fill="#F8FAFC"><tspan x="84" dy="116">ZERO-DAY</tspan><tspan x="84" dy="111.36">2026</tspan></text>
+  <rect data-element-id="accent-rule" opacity="1" x="84" y="438" width="160" height="8" rx="0" fill="#00F0FF" />
+  <text data-element-id="subtitle" opacity="1" y="472" font-family="Inter" font-size="32" font-weight="500" font-style="normal" letter-spacing="0px" text-anchor="start" fill="#CBD5E1"><tspan x="84" dy="32">36-Hour Offensive Security Hackathon &amp; Live Attack-Defense CTF</tspan></text>
+  <rect data-element-id="tracks-card" opacity="1" x="84" y="600" width="912" height="340" rx="12" fill="#0E172A" stroke="#1E293B" stroke-width="2" />
+  <text data-element-id="tracks-heading" opacity="1" y="632" font-family="JetBrains Mono" font-size="17" font-weight="700" font-style="normal" letter-spacing="1.5px" text-anchor="start" fill="#FFB800"><tspan x="120" dy="17">// COMPETITION TRACKS</tspan></text>
+  <text data-element-id="track-1" opacity="1" y="692" font-family="Inter" font-size="22" font-weight="600" font-style="normal" letter-spacing="0px" text-anchor="start" fill="#F1F5F9"><tspan x="120" dy="22">01  Binary Exploitation</tspan><tspan x="120" dy="31.9">Memory corruption &amp; kernel pwn</tspan></text>
+  <text data-element-id="track-2" opacity="1" y="692" font-family="Inter" font-size="22" font-weight="600" font-style="normal" letter-spacing="0px" text-anchor="start" fill="#F1F5F9"><tspan x="556" dy="22">02  Cloud &amp; IAM Breach</tspan><tspan x="556" dy="31.9">Kubernetes &amp; zero-trust defense</tspan></text>
+  <text data-element-id="track-3" opacity="1" y="814" font-family="Inter" font-size="22" font-weight="600" font-style="normal" letter-spacing="0px" text-anchor="start" fill="#F1F5F9"><tspan x="120" dy="22">03  AI Red-Teaming</tspan><tspan x="120" dy="31.9">Prompt injection &amp; model extraction</tspan></text>
+  <text data-element-id="track-4" opacity="1" y="814" font-family="Inter" font-size="22" font-weight="600" font-style="normal" letter-spacing="0px" text-anchor="start" fill="#F1F5F9"><tspan x="556" dy="22">04  Hardware &amp; RF CTF</tspan><tspan x="556" dy="31.9">Firmware reverse engineering</tspan></text>
+  <rect data-element-id="prize-box" opacity="1" x="84" y="980" width="440" height="150" rx="12" fill="rgba(255, 184, 0, 0.1)" stroke="#FFB800" stroke-width="2" />
+  <text data-element-id="prize-text" opacity="1" y="1004" font-family="Space Grotesk" font-size="42" font-weight="700" font-style="normal" letter-spacing="0px" text-anchor="start" fill="#FFB800"><tspan x="116" dy="42">PRIZE POOL</tspan><tspan x="116" dy="50.4">₹2,50,000</tspan></text>
+  <rect data-element-id="meta-box" opacity="1" x="556" y="980" width="440" height="150" rx="12" fill="#0E172A" stroke="#1E293B" stroke-width="2" />
+  <text data-element-id="meta-text" opacity="1" y="1004" font-family="Inter" font-size="28" font-weight="600" font-style="normal" letter-spacing="0px" text-anchor="start" fill="#F8FAFC"><tspan x="588" dy="28">DEC 12–13, 2026</tspan><tspan x="588" dy="37.800000000000004">Kochi Innovation Hub</tspan></text>
+  <rect data-element-id="cta-bar" opacity="1" x="84" y="1170" width="912" height="86" rx="10" fill="#00F0FF" />
+  <text data-element-id="cta-text" opacity="1" y="1170" font-family="JetBrains Mono" font-size="24" font-weight="700" font-style="normal" letter-spacing="1px" text-anchor="middle" fill="#060911"><tspan x="540" dy="24">REGISTER TEAM (MAX 4)  →  ZERODAY.SEC.IN</tspan></text>
+  </g>
+</svg>

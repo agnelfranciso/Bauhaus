@@ -1,0 +1,484 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "jordan-unit-annual-day-2026",
+  "title": "Jordan Unit Annual Day 2026 Poster",
+  "category": "poster",
+  "canvas": {
+    "width": 1080,
+    "height": 1350,
+    "unit": "px",
+    "dpi": 150,
+    "bleed": 0,
+    "background": {
+      "type": "solid",
+      "color": "#F7F6F2"
+    }
+  },
+  "fonts": [
+    {
+      "family": "Bricolage Grotesque",
+      "source": "google",
+      "weights": [
+        500,
+        700,
+        800
+      ]
+    },
+    {
+      "family": "Instrument Serif",
+      "source": "google",
+      "weights": [
+        400
+      ]
+    },
+    {
+      "family": "Plus Jakarta Sans",
+      "source": "google",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    {
+      "family": "IBM Plex Mono",
+      "source": "google",
+      "weights": [
+        400,
+        600
+      ]
+    }
+  ],
+  "metadata": {
+    "brief": "Modern minimal poster for Jordan Unit Annual Day 2026",
+    "creativeDirection": "Warm alabaster minimal Swiss editorial layout with Bricolage Grotesque + Instrument Serif + IBM Plex Mono and generous negative space",
+    "targetAudience": "Jordan Unit members, families, leadership, and guests",
+    "languages": [
+      "en"
+    ],
+    "palette": [
+      "#F7F6F2",
+      "#111113",
+      "#EFEDE7",
+      "#C2410C",
+      "#6B7280"
+    ]
+  },
+  "elements": [
+    {
+      "id": "top-rule",
+      "type": "line",
+      "name": "Top Hairline",
+      "x": 84,
+      "y": 84,
+      "width": 912,
+      "height": 2,
+      "content": {
+        "x2": 996,
+        "y2": 84
+      },
+      "style": {
+        "stroke": "#111113",
+        "strokeWidth": 1.5
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "eyebrow-left",
+      "type": "text",
+      "name": "Edition Label",
+      "x": 84,
+      "y": 108,
+      "width": 440,
+      "height": 28,
+      "content": {
+        "text": "ANNUAL GATHERING  //  2026"
+      },
+      "style": {
+        "fontFamily": "IBM Plex Mono",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "letterSpacing": 2,
+        "color": "#6B7280"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "eyebrow-right",
+      "type": "text",
+      "name": "Date Stamp",
+      "x": 556,
+      "y": 108,
+      "width": 440,
+      "height": 28,
+      "content": {
+        "text": "19 DEC 2026"
+      },
+      "style": {
+        "fontFamily": "IBM Plex Mono",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "letterSpacing": 2,
+        "color": "#C2410C",
+        "textAlign": "right"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "minimal-mark",
+      "type": "svg",
+      "name": "Minimal Geometric Mark",
+      "x": 84,
+      "y": 196,
+      "width": 48,
+      "height": 48,
+      "content": {
+        "viewBox": "0 0 48 48",
+        "svgMarkup": "<svg viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'><circle cx='24' cy='24' r='22' stroke='#111113' stroke-width='1.5' fill='none'/><circle cx='24' cy='24' r='7' fill='#C2410C'/></svg>"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "hero-unit-name",
+      "type": "text",
+      "name": "Jordan Unit Title",
+      "x": 84,
+      "y": 274,
+      "width": 912,
+      "height": 108,
+      "content": {
+        "text": "Jordan Unit"
+      },
+      "style": {
+        "fontFamily": "Bricolage Grotesque",
+        "fontSize": 96,
+        "fontWeight": 800,
+        "letterSpacing": -3,
+        "lineHeight": 1,
+        "color": "#111113"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "hero-annual-day",
+      "type": "text",
+      "name": "Annual Day Serif",
+      "x": 84,
+      "y": 376,
+      "width": 912,
+      "height": 124,
+      "content": {
+        "text": "Annual Day"
+      },
+      "style": {
+        "fontFamily": "Instrument Serif",
+        "fontSize": 112,
+        "fontWeight": 400,
+        "fontStyle": "italic",
+        "lineHeight": 1.02,
+        "color": "#C2410C"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "tagline",
+      "type": "text",
+      "name": "Minimal Tagline",
+      "x": 84,
+      "y": 524,
+      "width": 720,
+      "height": 76,
+      "content": {
+        "text": "An evening celebrating excellence, community, and a year of shared service."
+      },
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": 25,
+        "fontWeight": 400,
+        "lineHeight": 1.45,
+        "color": "#4B5563"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "mid-rule",
+      "type": "line",
+      "name": "Section Divider",
+      "x": 84,
+      "y": 640,
+      "width": 912,
+      "height": 1,
+      "content": {
+        "x2": 996,
+        "y2": 640
+      },
+      "style": {
+        "stroke": "#D6D3CB",
+        "strokeWidth": 1.5
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "programme-label",
+      "type": "text",
+      "name": "Programme Label",
+      "x": 84,
+      "y": 678,
+      "width": 260,
+      "height": 32,
+      "content": {
+        "text": "01 / PROGRAMME"
+      },
+      "style": {
+        "fontFamily": "IBM Plex Mono",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "letterSpacing": 2,
+        "color": "#6B7280"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "programme-list",
+      "type": "text",
+      "name": "Programme Items",
+      "x": 380,
+      "y": 674,
+      "width": 616,
+      "height": 260,
+      "content": {
+        "text": "Ceremonial Opening & Lamp Lighting\nAnnual Report & Keynote Address\nExcellence & Service Recognition\nCultural Showcase & Music\nCommunity Dinner"
+      },
+      "style": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": 24,
+        "fontWeight": 500,
+        "lineHeight": 1.95,
+        "color": "#111113"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "lower-rule",
+      "type": "line",
+      "name": "Details Divider",
+      "x": 84,
+      "y": 970,
+      "width": 912,
+      "height": 1,
+      "content": {
+        "x2": 996,
+        "y2": 970
+      },
+      "style": {
+        "stroke": "#D6D3CB",
+        "strokeWidth": 1.5
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "when-label",
+      "type": "text",
+      "name": "When Label",
+      "x": 84,
+      "y": 1010,
+      "width": 420,
+      "height": 28,
+      "content": {
+        "text": "02 / DATE & TIME"
+      },
+      "style": {
+        "fontFamily": "IBM Plex Mono",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "letterSpacing": 2,
+        "color": "#6B7280"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "when-value",
+      "type": "text",
+      "name": "Date & Time",
+      "x": 84,
+      "y": 1052,
+      "width": 420,
+      "height": 84,
+      "content": {
+        "text": "Saturday, 19 Dec 2026\n4:30 PM Onwards"
+      },
+      "style": {
+        "fontFamily": "Bricolage Grotesque",
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 1.4,
+        "color": "#111113"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "where-label",
+      "type": "text",
+      "name": "Where Label",
+      "x": 556,
+      "y": 1010,
+      "width": 440,
+      "height": 28,
+      "content": {
+        "text": "03 / VENUE"
+      },
+      "style": {
+        "fontFamily": "IBM Plex Mono",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "letterSpacing": 2,
+        "color": "#6B7280"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "where-value",
+      "type": "text",
+      "name": "Venue",
+      "x": 556,
+      "y": 1052,
+      "width": 440,
+      "height": 84,
+      "content": {
+        "text": "Jordan Auditorium\nMain Convention Hall"
+      },
+      "style": {
+        "fontFamily": "Bricolage Grotesque",
+        "fontSize": 28,
+        "fontWeight": 700,
+        "lineHeight": 1.4,
+        "color": "#111113"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "footer-bar",
+      "type": "rect",
+      "name": "Minimal Footer Bar",
+      "x": 84,
+      "y": 1190,
+      "width": 912,
+      "height": 72,
+      "style": {
+        "fill": "#111113",
+        "borderRadius": 8
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    },
+    {
+      "id": "footer-text",
+      "type": "text",
+      "name": "Footer Note",
+      "x": 116,
+      "y": 1190,
+      "width": 848,
+      "height": 72,
+      "content": {
+        "text": "MEMBERS & FAMILIES INVITED  �?�  FORMAL ATTIRE"
+      },
+      "style": {
+        "fontFamily": "IBM Plex Mono",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "letterSpacing": 2,
+        "color": "#F7F6F2",
+        "textAlign": "center",
+        "verticalAlign": "middle"
+      },
+      "rotation": 0,
+      "opacity": 1,
+      "layerOrder": 0,
+      "visible": true,
+      "locked": false,
+      "parentId": null
+    }
+  ],
+  "assets": [],
+  "updatedAt": "2026-11-27T10:53:53.419Z"
+}
